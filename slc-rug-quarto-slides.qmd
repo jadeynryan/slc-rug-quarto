@@ -178,7 +178,7 @@ Markdown syntax for:
 
 # 💃🏻 Demo {.demo}
 
-`1-html-demo.qmd` 
+[`1-html-demo.qmd` ](https://github.com/jadeynryan/slc-rug-quarto/blob/main/demos/1-html-demo.qmd)
 
 # Primer on parameters {.section}
 
@@ -368,7 +368,7 @@ Learn how to programmatically render all reports at once from my [previous works
 
 # 💃🏻 Demo {.demo}
 
-`2-params-demo.qmd`
+[`2-params-demo.qmd`](https://github.com/jadeynryan/slc-rug-quarto/blob/main/demos/2-params-demo.qmd)
 
 # Multiple report formats from a single `.qmd` {.section}
 
@@ -562,7 +562,7 @@ embed-resources: true        # <3>
 
 # 💃🏻 Demo {.demo}
 
-`3-html-revealjs-demo.qmd`
+[`3-html-revealjs-demo.qmd`](https://github.com/jadeynryan/slc-rug-quarto/blob/main/demos/3-html-revealjs-demo.qmd)
 
 # Styling with HTML and CSS {.section}
 
