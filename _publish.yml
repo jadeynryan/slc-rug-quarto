@@ -1,0 +1,4 @@
+- source: slc-rug-quarto-slides.qmd
+  quarto-pub:
+    - id: 4dcadb64-9a40-45ef-9b9a-83d0f10b21f6
+      url: 'https://jadeyryan.quarto.pub/slc-rug-quarto'

@@ -1,0 +1,144 @@
+---
+title: "Registered `r params$pet_type` in Switzerland"
+subtitle: "2016-01-01 to 2023-12-31"
+author: "Jadey Ryan"
+date-modified: last-modified
+format: 
+  html: 
+    theme: solar
+    output-file: report.html
+  revealjs:
+    theme: moon
+    output-file: slides.html
+embed-resources: true
+format-links: false
+execute: 
+  echo: false
+params:
+  pet_type: "cats"
+  fave_breed: "Snowshoe"
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+# Attach packages
+library(readr)
+library(here)
+library(dplyr)
+library(ggplot2)
+library(stringr)
+
+# Load data
+pets <- read_rds(here("demos/data", "pets.RDS"))
+```
+
+## Breeds of `r params$pet_type` in Switzerland
+
+```{r}
+#| label: breeds-tbl
+
+breeds <- pets |>
+  filter(pet_type == params$pet_type)
+
+# Top 5 per date
+breeds_top_5 <- breeds |>
+  slice_max(order_by = count, n = 5, by = date)
+
+# Top 5 overall (average across all dates)
+breeds_avg <- breeds_top_5 |>
+  summarize(
+    "Average Number" = format(
+      mean(count),
+      big.mark = ",",
+      digits = 1,
+      justify = "right",
+      scientific = FALSE
+    ),
+    .by = "breed"
+  ) |>
+  rename("Breed" = breed) |>
+  head(5)
+```
+
+The breed with the largest average population in Switzerland from 2016 - 2023 was the **`r breeds_avg$Breed[[1]]`**.
+
+```{r}
+#| label: breeds-plot
+
+breeds_top_5 |>
+  ggplot(
+    aes(x = date, y = count, color = breed)
+  ) +
+  geom_line(linewidth = 1) +
+  scale_x_date(date_labels = "%Y", date_breaks = "1 year") +
+  scale_y_continuous(
+    labels = \(x) format(x, big.mark = ",", scientific = FALSE)
+  ) +
+  labs(
+    title = "Evolution by breed",
+    subtitle = str_wrap(
+      paste(
+        "Number of registered and living",
+        params$pet_type,
+        "by breed. The evolution of the largest populations is presented."
+      ),
+      80
+    ),
+    color = NULL,
+    caption = "Source: Identitas AG Animal Statistics"
+  ) +
+  xlab(NULL) +
+  ylab(NULL) +
+  scale_color_brewer(palette = "Dark2") +
+  theme_minimal() +
+  theme(
+    plot.caption.position = "plot",
+    legend.position = "top",
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor.x = element_blank()
+  )
+```
+
+## My favorite breed: `r params$fave_breed`
+
+```{r}
+#| label: fave-breed
+fave_breed <- breeds |>
+  filter(breed == params$fave_breed)
+```
+
+```{r}
+#| label: fave-breed-plot
+
+fave_breed |>
+  ggplot(
+    aes(x = date, y = count)
+  ) +
+  geom_line(linewidth = 1) +
+  scale_x_date(date_labels = "%Y", date_breaks = "1 year") +
+  scale_y_continuous(
+    labels = \(x) format(x, big.mark = ",", scientific = FALSE)
+  ) +
+  labs(
+    title = paste(params$fave_breed, "population"),
+    caption = "Source: Identitas AG Animal Statistics"
+  ) +
+  xlab(NULL) +
+  ylab(NULL) +
+  scale_color_brewer(palette = "Dark2") +
+  theme_minimal() +
+  theme(
+    plot.caption.position = "plot",
+    legend.position = "top",
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor.x = element_blank()
+  )
+```
+
+## Data source
+
+[Identitas AG](https://tierstatistik.identitas.ch/en/index.html) is the leading service provider for animal health, welfare and food safety in Switzerland. 
+
+Dogs are obliged to be registered for licensing purposes at a local government level and this data is kept in the Amicus database. Other pets, such as pets, rodents, birds or fish, may be registered and this data is stored in the Anis database.
