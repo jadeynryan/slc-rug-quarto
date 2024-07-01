@@ -23,9 +23,9 @@ revealjs-plugins:
 
 ::: columns
 ::: {.column width="44%"}
-Data scientist at WA Dept of Agriculture
+Data scientist at [WA Dept of Agriculture](https://agr.wa.gov/agscience)
 
-The Coding Cats: cat & code themed merch
+[The Coding Cats](https://thecodingcats.etsy.com/): cat & code themed merch
 
 {{< fa link size=xl >}} [jadeyryan.com](https://jadeyryan.com)
 
@@ -59,9 +59,15 @@ style="border-radius:1em;margin-top:auto"}
 
 ## Reproducibility
 
+::: {.nonincremental}
+
 - Data and style updates are inevitable
 
 - Manual updates are time-consuming and error-prone
+
+:::
+
+![](images/reproducibility.png){height=18em fig-alt="Reproducibility spectrum figure by Roger D. Peng (2011)"}
 
 ## Manual updates ❌
 
@@ -202,7 +208,7 @@ width="1300" fig-align="left" style="margin-top:-1em"}
 
 -   YAML header with `params` key-value pairs
 
--   Use these `params` to create different variations of a report from a single `.qmd` document.
+-   Use `params` to create different variations of a report from a single `.qmd` document
 
 . . .
 
@@ -470,6 +476,17 @@ format-links: false
         incremental: true
     ```
     
+-   Make **some** lists **non**-incremental by wrapping it in a div:
+    
+    ```
+    ::: {.nonincremental}
+    - I have 3 snowshoe cats:
+      - Mai
+      - Tai
+      - Skye
+    :::
+    ```
+    
 -   Make **some** lists incremental by wrapping it in a div:
     
     ```
@@ -482,16 +499,6 @@ format-links: false
     :::
     ```
 
--   Make **some** lists **non**-incremental by wrapping it in a div:
-    
-    ```
-    ::: {.nonincremental}
-    - I have 3 snowshoe cats:
-      - Mai
-      - Tai
-      - Skye
-    :::
-    ```
 
 ## Revealjs has the most options
 
@@ -520,7 +527,7 @@ Check out [Revealjs plugins](https://quarto.org/docs/extensions/revealjs.html) l
 
 ## and the coolest features
 
-Code line-highlighting:
+column output location & code line-highlighting:
 
 ```{r}
 #| echo: fenced
@@ -656,9 +663,13 @@ Declare [**CSS rules**](https://www.w3schools.com/css/css_syntax.ASP) in the `ru
 
 [Default Bootstrap variables](https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss)
 
+[Emil Hvitfeldt's Slidecraft 101 Series](https://emilhvitfeldt.com/blog)
+
 ## Browser developer tools
 
 `Cmd`/`Ctrl` + `Shift` + `C` in Google Chrome or Microsoft Edge then hover over the element to inspect.
+
+Modify the CSS and copy/paste into your `.scss` file.
 
 ::: r-stack
 ![](images/browser-tools.png){.fragment
@@ -726,9 +737,9 @@ Create and modify a *reference document*, which is a special kind of template fo
 
 ## More advanced features
 
-- [Conditional content](https://quarto.org/docs/authoring/conditional.html)
+- [Conditional content](https://quarto.org/docs/authoring/conditional.html) to show long-form content in HTML reports & bullet lists in Revealjs presentations
 
-- [Conditional code](https://quarto.org/docs/computations/r.html#chunk-options)
+- [Conditional code](https://quarto.org/docs/computations/r.html#chunk-options) to execute `ggplot2` code for MS Word/Powerpoint and `plotly` code for HTML/Revealjs
 
 - [`{{< include >}}` shortcode](https://quarto.org/docs/authoring/includes.html) for reusing content without copying/pasting
 
@@ -742,9 +753,9 @@ Create and modify a *reference document*, which is a special kind of template fo
 
 - Careful with features that only work in certain formats (e.g., interactivity)
 
-- Use the [Quarto docs](https://quarto.org/) as a **reference** & take advantage of the search feature
-
 - Pick similar themes and use custom `.scss` files and reference documents to ensure consistent styling across all your documents
+
+- Use the [Quarto docs](https://quarto.org/) as a **reference** & take advantage of the search feature
 
 ## Next steps
 

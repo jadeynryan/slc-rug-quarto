@@ -10,7 +10,7 @@
 <link href="slc-rug-quarto-slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="slc-rug-quarto-slides_files/libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="slc-rug-quarto-slides_files/libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.553">
+  <meta name="generator" content="quarto-1.5.45">
 
   <meta name="author" content="Jadey Ryan // July 1, 2024 Salt Lake City R Users Group">
   <title>Reproducible reports and presentations with Quarto </title>
@@ -44,7 +44,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -409,8 +409,8 @@ Jadey Ryan // July 1, 2024<br>Salt Lake City R Users Group
 <h2>Jadey Ryan</h2>
 <div class="columns">
 <div class="column" style="width:44%;">
-<p>Data scientist at WA Dept of Agriculture</p>
-<p>The Coding Cats: cat &amp; code themed merch</p>
+<p>Data scientist at <a href="https://agr.wa.gov/agscience">WA Dept of Agriculture</a></p>
+<p><a href="https://thecodingcats.etsy.com/">The Coding Cats</a>: cat &amp; code themed merch</p>
 <p><i class="fa-solid fa-link fa-xl" aria-label="link"></i> <a href="https://jadeyryan.com">jadeyryan.com</a></p>
 <p><i class="fa-brands fa-mastodon fa-xl" aria-label="mastodon"></i> <a href="https://fosstodon.org/@jadeynryan">@jadeynryan</a></p>
 <p><i class="fa-brands fa-linkedin fa-xl" aria-label="linkedin"></i> <a href="https://www.linkedin.com/in/jadey-ryan">linkedin.com/in/jadey-ryan</a></p>
@@ -420,6 +420,9 @@ Jadey Ryan // July 1, 2024<br>Salt Lake City R Users Group
 </div><div class="column" style="width:28%;">
 <p><img data-src="images/bulk-density.jpg" style="border-radius:1em;margin-top:auto" alt="Jadey collecting a bulk density soil sample in a field of wheat stubble."></p>
 </div><div class="column" style="width:28%;">
+<div>
+
+</div>
 <div class="quarto-layout-panel" data-layout-nrow="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
@@ -438,10 +441,13 @@ Jadey Ryan // July 1, 2024<br>Salt Lake City R Users Group
 </section>
 <section id="reproducibility" class="slide level2">
 <h2>Reproducibility</h2>
+<div>
 <ul>
-<li class="fragment"><p>Data and style updates are inevitable</p></li>
-<li class="fragment"><p>Manual updates are time-consuming and error-prone</p></li>
+<li><p>Data and style updates are inevitable</p></li>
+<li><p>Manual updates are time-consuming and error-prone</p></li>
 </ul>
+</div>
+<p><img data-src="images/reproducibility.png" style="height:18em" alt="Reproducibility spectrum figure by Roger D. Peng (2011)"></p>
 </section>
 <section id="manual-updates" class="slide level2">
 <h2>Manual updates ❌</h2>
@@ -461,7 +467,7 @@ Jadey Ryan // July 1, 2024<br>Salt Lake City R Users Group
 <div class="r-stack">
 <div class="quarto-figure quarto-figure-center" style="margin-top:-1em;margin-bottom:-1em">
 <figure>
-<p><img data-src="images/horst-quarto-schematic.png" class="fragment fade-out" data-fragment-index="1"></p>
+<p><img data-src="images/horst-quarto-schematic.png" class="fragment fade-out" data-fragment-index="1" alt="A schematic representing the multi-language input (e.g. Python, R, Observable, Julia) and multi-format output (e.g. PDF, html, Word documents, and more) versatility of Quarto."></p>
 <figcaption>Artwork from “Hello, Quarto” keynote by Julia Lowndes and Mine Çetinkaya-Rundel, presented at RStudio::Conf(2022). Illustrated by Allison Horst.</figcaption>
 </figure>
 </div>
@@ -596,7 +602,7 @@ Jadey Ryan // July 1, 2024<br>Salt Lake City R Users Group
 <h2>What makes a document “parameterized”?</h2>
 <ul>
 <li class="fragment"><p>YAML header with <code>params</code> key-value pairs</p></li>
-<li class="fragment"><p>Use these <code>params</code> to create different variations of a report from a single <code>.qmd</code> document.</p></li>
+<li class="fragment"><p>Use <code>params</code> to create different variations of a report from a single <code>.qmd</code> document</p></li>
 </ul>
 <div class="fragment">
 <div class="callout callout-important callout-titled callout-style-default">
@@ -859,6 +865,13 @@ Jadey Ryan // July 1, 2024<br>Salt Lake City R Users Group
 <div class="sourceCode" id="cb16"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a href=""></a><span class="fu">format</span><span class="kw">:</span></span>
 <span id="cb16-2"><a href=""></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
 <span id="cb16-3"><a href=""></a><span class="at">    </span><span class="fu">incremental</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li class="fragment"><p>Make <strong>some</strong> lists <strong>non</strong>-incremental by wrapping it in a div:</p>
+<pre><code>::: {.nonincremental}
+- I have 3 snowshoe cats:
+  - Mai
+  - Tai
+  - Skye
+:::</code></pre></li>
 <li class="fragment"><p>Make <strong>some</strong> lists incremental by wrapping it in a div:</p>
 <pre><code>::: {.incremental}
 - Snowshoe
@@ -866,13 +879,6 @@ Jadey Ryan // July 1, 2024<br>Salt Lake City R Users Group
 - are
 - so
 - cute!
-:::</code></pre></li>
-<li class="fragment"><p>Make <strong>some</strong> lists <strong>non</strong>-incremental by wrapping it in a div:</p>
-<pre><code>::: {.nonincremental}
-- I have 3 snowshoe cats:
-  - Mai
-  - Tai
-  - Skye
 :::</code></pre></li>
 </ul>
 </section>
@@ -898,7 +904,7 @@ Jadey Ryan // July 1, 2024<br>Salt Lake City R Users Group
 </section>
 <section id="and-the-coolest-features" class="slide level2">
 <h2>and the coolest features</h2>
-<p>Code line-highlighting:</p>
+<p>column output location &amp; code line-highlighting:</p>
 <div class="cell columns column-output-location">
 <div class="column">
 <div class="sourceCode cell-code" id="cb20" data-code-line-numbers="|3|5|8|10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href=""></a><span class="in">```{r}</span></span>
@@ -1026,10 +1032,12 @@ Jadey Ryan // July 1, 2024<br>Salt Lake City R Users Group
 </p>
 <p><a href="https://getbootstrap.com/docs/5.1/customize/sass/">Bootstrap docs</a></p>
 <p><a href="https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss">Default Bootstrap variables</a></p>
+<p><a href="https://emilhvitfeldt.com/blog">Emil Hvitfeldt’s Slidecraft 101 Series</a></p>
 </section>
 <section id="browser-developer-tools" class="slide level2">
 <h2>Browser developer tools</h2>
 <p><code>Cmd</code>/<code>Ctrl</code> + <code>Shift</code> + <code>C</code> in Google Chrome or Microsoft Edge then hover over the element to inspect.</p>
+<p>Modify the CSS and copy/paste into your <code>.scss</code> file.</p>
 <div class="r-stack">
 <div class="quarto-figure quarto-figure-left">
 <figure>
@@ -1100,8 +1108,8 @@ Jadey Ryan // July 1, 2024<br>Salt Lake City R Users Group
 <section id="more-advanced-features" class="slide level2">
 <h2>More advanced features</h2>
 <ul>
-<li class="fragment"><p><a href="https://quarto.org/docs/authoring/conditional.html">Conditional content</a></p></li>
-<li class="fragment"><p><a href="https://quarto.org/docs/computations/r.html#chunk-options">Conditional code</a></p></li>
+<li class="fragment"><p><a href="https://quarto.org/docs/authoring/conditional.html">Conditional content</a> to show long-form content in HTML reports &amp; bullet lists in Revealjs presentations</p></li>
+<li class="fragment"><p><a href="https://quarto.org/docs/computations/r.html#chunk-options">Conditional code</a> to execute <code>ggplot2</code> code for MS Word/Powerpoint and <code>plotly</code> code for HTML/Revealjs</p></li>
 <li class="fragment"><p><a href="https://quarto.org/docs/authoring/includes.html"><code>{{&lt; include  &gt;}}</code> shortcode</a> for reusing content without copying/pasting</p></li>
 <li class="fragment"><p>See <a href="https://jadeyryan.quarto.pub/cascadia-quarto/4-conditionals/">slides from my recent Intermediate Quarto workshop</a> for details, example code snippets, and exercises</p></li>
 </ul>
@@ -1112,8 +1120,8 @@ Jadey Ryan // July 1, 2024<br>Salt Lake City R Users Group
 <li class="fragment"><p><a href="http://en.wikipedia.org/wiki/KISS_principle"><strong>KISS principle</strong></a>: keep it super simple</p></li>
 <li class="fragment"><p>Keep text minimal if rendering a report &amp; presentation from the same <code>.qmd</code>, or use conditional content</p></li>
 <li class="fragment"><p>Careful with features that only work in certain formats (e.g., interactivity)</p></li>
-<li class="fragment"><p>Use the <a href="https://quarto.org/">Quarto docs</a> as a <strong>reference</strong> &amp; take advantage of the search feature</p></li>
 <li class="fragment"><p>Pick similar themes and use custom <code>.scss</code> files and reference documents to ensure consistent styling across all your documents</p></li>
+<li class="fragment"><p>Use the <a href="https://quarto.org/">Quarto docs</a> as a <strong>reference</strong> &amp; take advantage of the search feature</p></li>
 </ul>
 </section>
 <section id="next-steps" class="slide level2">
@@ -1380,42 +1388,80 @@ Jadey Ryan // July 1, 2024<br>Salt Lake City R Users Group
       });
     </script>
     
+
     <script>
+
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
       // slide changes (different for each slide format).
+
       (function () {
+
         // dispatch for htmlwidgets
+
         function fireSlideEnter() {
+
           const event = window.document.createEvent("Event");
+
           event.initEvent("slideenter", true, true);
+
           window.document.dispatchEvent(event);
+
         }
+
+    
 
         function fireSlideChanged(previousSlide, currentSlide) {
+
           fireSlideEnter();
 
+    
+
           // dispatch for shiny
+
           if (window.jQuery) {
+
             if (previousSlide) {
+
               window.jQuery(previousSlide).trigger("hidden");
+
             }
+
             if (currentSlide) {
+
               window.jQuery(currentSlide).trigger("shown");
+
             }
+
           }
+
         }
+
+    
 
         // hookup for slidy
+
         if (window.w3c_slidy) {
+
           window.w3c_slidy.add_observer(function (slide_num) {
+
             // slide_num starts at position 1
+
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
           });
+
         }
 
+    
+
       })();
+
     </script>
+
+    
 
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1449,18 +1495,7 @@ Jadey Ryan // July 1, 2024<br>Salt Lake City R Users Group
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1492,7 +1527,29 @@ Jadey Ryan // July 1, 2024<br>Salt Lake City R Users Group
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1500,7 +1557,7 @@ Jadey Ryan // July 1, 2024<br>Salt Lake City R Users Group
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
