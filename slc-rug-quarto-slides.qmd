@@ -69,7 +69,7 @@ style="border-radius:1em;margin-top:auto"}
 
 ## Updates with Quarto ✅
 
-![](images/updates-with-quarto.svg){fig-alt="Illustration of a reproducible workflow for creating reports and presentations with R and Quarto, showcasing the streamlined and efficient process" fig-align="center"}
+![](images/updates-with-quarto.svg){fig-alt="Illustration of a reproducible workflow for creating reports and presentations with R and Quarto, showcasing the streamlined and efficient process." fig-align="center"}
 
 # What is Quarto? {.section}
 
@@ -217,7 +217,7 @@ width="1300" fig-align="left" style="margin-top:-1em"}
     to understand why.
 
 -   See [John Paul Helveston's blog
-    post](https://www.jhelvy.com/posts/2023-02-28-parameterized-pdfs-with-quarto/#passing-data-frames-as-parameters)
+    post](https://www.jhelvy.com/blog/2023-02-28-parameterized-pdfs-with-quarto/#passing-data-frames-as-parameters)
     to learn how to use {jsonlite} as a workaround.
 :::
 
